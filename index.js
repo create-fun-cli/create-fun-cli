@@ -10,8 +10,11 @@ import download from 'download-git-repo';
 import https from 'https';
 import semver from 'semver';
 import shell from 'shelljs';
+import { readFile } from 'fs/promises';
 
-const packageJson = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
+const packageJson = JSON.parse(
+  await readFile(new URL('./package.json', import.meta.url)),
+);
 
 let projectName;
 
