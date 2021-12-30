@@ -1,6 +1,6 @@
 {
   "name": "create-fun-cli",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A frontend project creator.",
   "license": "MIT",
   "type": "module",
