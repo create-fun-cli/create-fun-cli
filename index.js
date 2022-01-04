@@ -70,8 +70,8 @@ function init() {
               },
               {
                 type: 'confirm',
-                name: 'typescript',
-                message: 'Whether to support Typescript?',
+                name: 'isTsSupported',
+                message: 'Whether to support Typescript ?',
                 default: true,
               },
             ])
