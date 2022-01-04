@@ -71,7 +71,7 @@ function init() {
               {
                 type: 'confirm',
                 name: 'typescript',
-                message: 'If support typescript ?',
+                message: 'Whether to support Typescript?',
                 default: true,
               },
             ])
