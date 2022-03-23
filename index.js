@@ -115,7 +115,7 @@ function getRepoName(answers) {
 function checkForLatestVersion() {
   return new Promise((resolve, reject) => {
     https
-      .get('https://registry.npmjs.org/-/package/create-fun-cli/dist-tags', res => {
+      .get(`https://registry.npmjs.org/-/package/${packageJson.name}/dist-tags`, res => {
         if (res.statusCode === 200) {
           let data = ''
           res.on('data', chunk => (data += chunk))
