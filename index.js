@@ -1,17 +1,16 @@
 #!/usr/bin/env node
-import chalk from 'chalk'
-import { Command } from 'commander'
-import inquirer from 'inquirer'
-import fs from 'fs'
-import ora from 'ora'
-import symbols from 'log-symbols'
-import download from 'download-git-repo'
-import https from 'https'
-import semver from 'semver'
-import shell from 'shelljs'
-import { readFile } from 'fs/promises'
 
-const packageJson = JSON.parse(await readFile(new URL('./package.json', import.meta.url)))
+const chalk = require('chalk')
+const { Command } = require('commander')
+const inquirer = require('inquirer')
+const fs = require('fs')
+const ora = require('ora')
+const symbols = require('log-symbols')
+const download = require('download-git-repo')
+const https = require('https')
+const semver = require('semver')
+const shell = require('shelljs')
+const packageJson = require('./package.json')
 
 let projectName
 
@@ -65,13 +64,13 @@ function init() {
               {
                 type: 'list',
                 name: 'type',
-                message: 'Select a frontend framework',
+                message: 'Please select a frontend framework:',
                 choices: ['react', 'vue'],
               },
               {
                 type: 'confirm',
-                name: 'isTsSupported',
-                message: 'Whether to support Typescript ?',
+                name: 'ts',
+                message: 'Whether to support Typescript?',
                 default: true,
               },
             ])
@@ -99,16 +98,16 @@ function init() {
 }
 
 function getRepoName(answers) {
-  const { type, isTsSupported } = answers
+  const { type, ts } = answers
   let repo = 'github:create-fun-cli/'
 
-  if (type === 'react' && !isTsSupported) {
+  if (type === 'react' && !ts) {
     return repo + 'react-template'
-  } else if (type === 'react' && isTsSupported) {
+  } else if (type === 'react' && ts) {
     return repo + 'react-ts-template'
-  } else if (type === 'vue' && !isTsSupported) {
+  } else if (type === 'vue' && !ts) {
     return repo + 'vue-template'
-  } else if (type === 'vue' && isTsSupported) {
+  } else if (type === 'vue' && ts) {
     return repo + 'vue-ts-template'
   }
 }
