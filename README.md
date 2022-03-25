@@ -7,14 +7,19 @@ Generate a new frontend project.
 
 ## Usage
 
-NPM
+npx
 ```shell
-npx create-fun-cli <project-directory>
+npx create-fun-cli <directory>
+```
+
+npm
+```shell
+npm init fun-cli <directory>
 ```
 
 Yarn
 ```shell
-yarn create fun-cli <project-directory>
+yarn create fun-cli <directory>
 ```
 
 ## Release
@@ -25,11 +30,10 @@ yarn create fun-cli <project-directory>
 npm version [<newversion> | major | minor | patch | premajor | preminor | prepatch | prerelease | from-git]
 ```
 
-#### 2. Push all changes to GitHub.
+#### 2. Push all tags to GitHub.
 
 ```shell
-git push
-git push --tag
+git push --tags
 ```
 
 #### 3. Create a release.
